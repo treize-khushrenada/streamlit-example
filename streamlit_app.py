@@ -28,9 +28,8 @@ def get_data():
     try:
         response1 = response1['data'][0]['eta']
         eta = datetime.fromisoformat(response1)
-        response1 = eta - hkt_now
+        response1 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
-        response1 = response1.minutes
     except:
         eta = 'N/A'
         response1 = 'N/A'
@@ -41,7 +40,7 @@ def get_data():
     try:
         response2 = response2['data'][0]['eta']
         eta = datetime.fromisoformat(response2)
-        response2 = (eta - hkt_now)
+        response2 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
     except:
         eta = 'N/A'
@@ -53,7 +52,7 @@ def get_data():
     try:
         response3 = response3['data'][0]['eta']
         eta = datetime.fromisoformat(response3)
-        response3 = (eta - hkt_now)
+        response3 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
     except:
         eta = 'N/A'
@@ -65,7 +64,7 @@ def get_data():
     try:
         response4 = response4['data'][0]['eta']
         eta = datetime.fromisoformat(response4)
-        response4 = (eta - hkt_now)
+        response4 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
     except:
         eta = 'N/A'
@@ -77,7 +76,7 @@ def get_data():
     try:
         response5 = response5['data'][0]['eta']
         eta = datetime.fromisoformat(response5)
-        response5 = (eta - hkt_now)
+        response5 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
     except:
         eta = 'N/A'
@@ -89,7 +88,7 @@ def get_data():
     try:
         response6 = response6['data'][0]['eta']
         eta = datetime.fromisoformat(response6)
-        response6 = (eta - hkt_now)
+        response6 = (eta - hkt_now).total_seconds() / 60
         eta = eta.strftime("%H:%M:%S")
     except:
         eta = 'N/A'
