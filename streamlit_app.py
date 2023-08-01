@@ -117,6 +117,7 @@ def main():
     
 
 while __name__ == '__main__':
-    main()
-    time.sleep(60)
-    st.empty()
+    with st.empty():
+        main()
+        time.sleep(60)
+    
