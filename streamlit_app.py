@@ -110,7 +110,7 @@ def main():
         st.markdown(' '+str(int(data['22x_KT'][1]))+"m")
     with col2:
         st.header("Go")
-        st.markdown('# 22X '+str(data['22x_OV'][0]+' '+str(int(data['22x_OV'][1]))+"m")
+        st.markdown('# 22X '+str(data['22x_OV'][0]+' '+str(int(data['22x_OV'][1]))+"m"))
         st.markdown(' '+str(int(data['22x_OV'][1]))+"m")
         st.markdown('# 22M '+str(data['22m_SFR'][0]+' '+str(int(data['22x_OV'][1]))+"m"))
         st.markdown(' '+str(int(data['22x_OV'][1]))+"m")
