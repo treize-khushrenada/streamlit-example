@@ -58,16 +58,15 @@ def get_data():
 
 def main():
     st.title('Auto-Refreshing Data')
-    while True:
-        data = get_data()    
-        st.write('22x_OV', data['22x_OV'])
-        st.write('22m_SFR', data['22m_SFR'])
-        st.write('22_SFR', data['22_SFR'])
-        st.write('5R_SFR', data['5R_SFR'])
-        st.write('22d_SFR', data['22d_SFR'])
-        st.write('22x_KT:', data['22x_KT'])
-        time.sleep(60) # wait for 60 seconds before refreshing
-        st.experimental_refresh() # refresh the Streamlit app
+    data = get_data()    
+    st.write('22x_OV', data['22x_OV'])
+    st.write('22m_SFR', data['22m_SFR'])
+    st.write('22_SFR', data['22_SFR'])
+    st.write('5R_SFR', data['5R_SFR'])
+    st.write('22d_SFR', data['22d_SFR'])
+    st.write('22x_KT:', data['22x_KT'])
+    time.sleep(60) # wait for 60 seconds before refreshing
+    st.experimental_refresh() # refresh the Streamlit app
 
 if __name__ == '__main__':
     main()
