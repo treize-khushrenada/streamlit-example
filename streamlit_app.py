@@ -5,6 +5,16 @@ from datetime import datetime
 from pytz import timezone    
 
 def get_data():
+
+    data = {
+        '22x_OV': [None, None],
+        '22m_SFR': [None, None],
+        '22_SFR': [None, None],
+        '5R_SFR': [None, None],
+        '22d_SFR': [None, None],
+        '22x_KT': [None, None],
+    }
+    
     hkt = timezone('Asia/Hong_Kong')
     hkt_now = datetime.now(hkt)
     # make your 6 GET requests here and store the responses in a dictionary
@@ -22,6 +32,9 @@ def get_data():
     except:
         eta = 'N/A'
         response1 = 'N/A'
+    
+    data['22x_OV'][0] = eta
+    data['22x_OV'][1] = response1
 
     try:
         response2 = response2['data'][0]['eta']
@@ -31,6 +44,9 @@ def get_data():
         eta = 'N/A'
         response2 = 'N/A'
 
+    data['22m_SFR'][0] = eta
+    data['22m_SFR'][1] = response2
+
     try:
         response3 = response3['data'][0]['eta']
         eta = datetime.fromisoformat(response3)
@@ -38,6 +54,9 @@ def get_data():
     except:
         eta = 'N/A'
         response3 = 'N/A'
+
+    data['22_SFR'][0] = eta
+    data['22_SFR'][1] = response3
 
     try:
         response4 = response4['data'][0]['eta']
@@ -47,6 +66,9 @@ def get_data():
         eta = 'N/A'
         response4 = 'N/A'
 
+    data['5R_SFR'][0] = eta
+    data['5R_SFR'][1] = response4
+
     try:
         response5 = response5['data'][0]['eta']
         eta = datetime.fromisoformat(response5)
@@ -55,6 +77,9 @@ def get_data():
         eta = 'N/A'
         response5 = 'N/A'
 
+    data['22d_SFR'][0] = eta
+    data['22d_SFR'][1] = response5
+
     try:
         response6 = response6['data'][0]['eta']
         eta = datetime.fromisoformat(response6)
@@ -62,16 +87,10 @@ def get_data():
     except:
         eta = 'N/A'
         response6 = 'N/A'
-    
 
-    data = {
-        '22x_OV': [response1],
-        '22m_SFR': [response2],
-        '22_SFR': [response3],
-        '5R_SFR': [response4],
-        '22d_SFR': [response5],
-        '22x_KT': [response6],
-    }
+    data['22x_KT'][0] = eta
+    data['22x_KT'][1] = response6
+    
     return data
     
 
@@ -79,23 +98,23 @@ def main():
     st.title('Come & Go💨')
     data = get_data()    
     st.markdown('# 22X走')
-    st.markdown('# '+str(data['22x_OV']))
-    st.markdown('# '+str(data['22x_OV'])+" left")
+    st.markdown('# ETA: '+str(data['22x_OV'][0]))
+    st.markdown('# '+str(data['22x_OV'][1])+" left")
     st.markdown('# 22M走')
-    st.markdown('# '+str(data['22m_SFR']))
-    st.markdown('# '+str(data['22m_SFR'])+" left")
+    st.markdown('# ETA: '+str(data['22m_SFR'][0]))
+    st.markdown('# '+str(data['22m_SFR'][1])+" left")
     st.markdown('# 22走')
-    st.markdown('# '+str(data['22_SFR']))
-    st.markdown('# '+str(data['22_SFR'])+" left")
+    st.markdown('# ETA: '+str(data['22_SFR'][0]))
+    st.markdown('# '+str(data['22_SFR'][1])+" left")
     st.markdown('# 5R走')
-    st.markdown('# '+str(data['22_SFR']))
-    st.markdown('# '+str(data['22_SFR'])+" left")
+    st.markdown('# ETA: '+str(data['22_SFR'][0]))
+    st.markdown('# '+str(data['22_SFR'][1])+" left")
     st.markdown('# 22D走')
-    st.markdown('# '+str(data['22d_SFR']))
-    st.markdown('# '+str(data['22d_SFR'])+" left")
+    st.markdown('# ETA: '+str(data['22d_SFR'][0]))
+    st.markdown('# '+str(data['22d_SFR'][1])+" left")
     st.markdown('# 22x返')
-    st.markdown('# '+str(data['22x_KT']))
-    st.markdown('# '+str(data['22x_KT'])+" left")
+    st.markdown('# ETA: '+str(data['22x_KT'][0]))
+    st.markdown('# '+str(data['22x_KT'][1])+" left")
 
 if __name__ == '__main__':
     main()
