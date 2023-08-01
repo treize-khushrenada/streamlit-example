@@ -1,6 +1,10 @@
 import streamlit as st
 import requests
 import time
+from streamlit_autorefresh import st_autorefresh
+
+# Run the autorefresh about every 60000 milliseconds (60 seconds) and stop
+count = st_autorefresh(interval=60000, key="fizzbuzzcounter")
 
 def get_data():
     # make your 6 GET requests here and store the responses in a dictionary
