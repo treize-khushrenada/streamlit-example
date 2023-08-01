@@ -85,6 +85,5 @@ def main():
     st.markdown('# 22x返')
     st.markdown('# '+str(data['22x_KT']))
 
-while __name__ == '__main__':
+if __name__ == '__main__':
     main()
-    time.sleep(60)
