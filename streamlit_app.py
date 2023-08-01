@@ -59,7 +59,7 @@ def get_data():
     
 
     data = {
-        '22x_OV': strresponse1,
+        '22x_OV': response1,
         '22m_SFR': response2,
         '22_SFR': response3,
         '5R_SFR': response4,
