@@ -4,7 +4,7 @@ import time
 
 def get_data():
     # make your 6 GET requests here and store the responses in a dictionary
-    response1 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003782/22x').text
+    response1 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003782/22x').text['data'][0]['eta']
     response2 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22m').text
     response3 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22').text
     response4 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/5r').text
