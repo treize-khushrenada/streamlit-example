@@ -107,19 +107,13 @@ def main():
     with col1:
         st.header("Come")
         st.markdown('# 22X '+str(data['22x_KT'][0]+' '+str(int(data['22x_KT'][1]))+"m"))
-        st.markdown(' '+str(int(data['22x_KT'][1]))+"m")
     with col2:
         st.header("Go")
         st.markdown('# 22X '+str(data['22x_OV'][0]+' '+str(int(data['22x_OV'][1]))+"m"))
-        st.markdown(' '+str(int(data['22x_OV'][1]))+"m")
         st.markdown('# 22M '+str(data['22m_SFR'][0]+' '+str(int(data['22x_OV'][1]))+"m"))
-        st.markdown(' '+str(int(data['22x_OV'][1]))+"m")
         st.markdown('# 22 '+str(data['22_SFR'][0]+' '+str(int(data['22_SFR'][1]))+"m"))
-        st.markdown(' '+str(int(data['22_SFR'][1]))+"m")
         st.markdown('# 5R '+str(data['5R_SFR'][0]+' '+str(int(data['5R_SFR'][1]))+"m"))
-        st.markdown(' '+str(int(data['5R_SFR'][1]))+"m")
         st.markdown('# 22D '+str(data['22d_SFR'][0]+' '+str(int(data['22d_SFR'][1]))+"m"))
-        st.markdown(' '+str(int(data['22d_SFR'][1]))+"m")
     
 
 if __name__ == '__main__':
