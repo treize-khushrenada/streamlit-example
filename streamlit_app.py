@@ -107,7 +107,7 @@ def main():
     with col1:
         st.header("Come")
         st.markdown('# 22x')
-        st.markdown('# ETA: '+str(data['22x_KT'][0]))
+        st.markdown('# 22x ETA: '+str(data['22x_KT'][0]))
         st.markdown('# '+str(int(data['22x_KT'][1]))+"mins left")
     with col2:
         st.header("Go")
