@@ -1,10 +1,6 @@
 import streamlit as st
 import requests
 import time
-from streamlit_autorefresh import st_autorefresh
-
-# Run the autorefresh about every 60000 milliseconds (60 seconds) and stop
-count = st_autorefresh(interval=60000, key="fizzbuzzcounter")
 
 def get_data():
     # make your 6 GET requests here and store the responses in a dictionary
@@ -59,14 +55,13 @@ def get_data():
 def main():
     st.title('Auto-Refreshing Data')
     data = get_data()    
-    st.write('22x_OV', data['22x_OV'])
-    st.write('22m_SFR', data['22m_SFR'])
-    st.write('22_SFR', data['22_SFR'])
-    st.write('5R_SFR', data['5R_SFR'])
-    st.write('22d_SFR', data['22d_SFR'])
-    st.write('22x_KT:', data['22x_KT'])
-    time.sleep(60) # wait for 60 seconds before refreshing
-    st.experimental_refresh() # refresh the Streamlit app
+    st.markdown('#22X走', data['22x_OV'])
+    st.markdown('#22M走', data['22m_SFR'])
+    st.markdown('#22走', data['22_SFR'])
+    st.markdown('#5R走', data['5R_SFR'])
+    st.markdown('#22D走', data['22d_SFR'])
+    st.markdown('#22x返', data['22x_KT'])
 
-if __name__ == '__main__':
+while __name__ == '__main__':
     main()
+    time.sleep(60)
