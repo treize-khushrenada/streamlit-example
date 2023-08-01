@@ -1,38 +1,38 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
 import streamlit as st
+import requests
+import time
 
-"""
-# Welcome to Streamlit!
+def get_data():
+    # make your 6 GET requests here and store the responses in a dictionary
+    response1 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003782/22x').text
+    response2 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22m').text
+    response3 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22').text
+    response4 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/5r').text
+    response5 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22d').text
+    response6 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003587/22x').text
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+    data = {
+        '22x_OV': response1,
+        '22m_SFR': response2,
+        '22_SFR': response3,
+        '5R_SFR': response4,
+        '22d_SFR': response5,
+        '22x_KT': response6,
+    }
+    return data
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+def main():
+    st.title('Auto-Refreshing Data')
+    while True:
+        data = get_data()
+        st.write('22x_OV', data['22x_OV'])
+        st.write('22m_SFR', data['22m_SFR'])
+        st.write('22_SFR', data['22_SFR'])
+        st.write('5R_SFR', data['5R_SFR'])
+        st.write('22d_SFR', data['22d_SFR'])
+        st.write('22x_KT:', data['22x_KT'])
+        time.sleep(60) # wait for 60 seconds before refreshing
+        st.experimental_refresh() # refresh the Streamlit app
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
-
-
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
-
-    Point = namedtuple('Point', 'x y')
-    data = []
-
-    points_per_turn = total_points / num_turns
-
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
-
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+if __name__ == '__main__':
+    main()
