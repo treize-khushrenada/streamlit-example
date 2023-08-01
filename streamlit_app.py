@@ -76,7 +76,7 @@ def get_data():
     
 
 def main():
-    st.title('Come and Go')
+    st.title('Come & Go💨')
     data = get_data()    
     st.markdown('# 22X走')
     st.markdown('# '+str(data['22x_OV']))
