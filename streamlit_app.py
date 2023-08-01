@@ -29,13 +29,12 @@ def get_data():
         response1 = response1['data'][0]['eta']
         eta = datetime.fromisoformat(response1)
         response1 = eta - hkt_now
-        eta = eta.strftime('%Y-%m-%d')
-        response1 = response1.strftime("%M:%S")
+        response1 = response1.minutes
     except:
         eta = 'N/A'
         response1 = 'N/A'
     
-    data['22x_OV'][0] = eta
+    data['22x_OV'][0] = eta.strftime("%H:%M:%S")
     data['22x_OV'][1] = response1
 
     try:
@@ -46,7 +45,7 @@ def get_data():
         eta = 'N/A'
         response2 = 'N/A'
 
-    data['22m_SFR'][0] = eta
+    data['22m_SFR'][0] = eta.strftime("%H:%M:%S")
     data['22m_SFR'][1] = response2
 
     try:
@@ -57,7 +56,7 @@ def get_data():
         eta = 'N/A'
         response3 = 'N/A'
 
-    data['22_SFR'][0] = eta
+    data['22_SFR'][0] = eta.strftime("%H:%M:%S")
     data['22_SFR'][1] = response3
 
     try:
@@ -68,7 +67,7 @@ def get_data():
         eta = 'N/A'
         response4 = 'N/A'
 
-    data['5R_SFR'][0] = eta
+    data['5R_SFR'][0] = eta.strftime("%H:%M:%S")
     data['5R_SFR'][1] = response4
 
     try:
@@ -79,7 +78,7 @@ def get_data():
         eta = 'N/A'
         response5 = 'N/A'
 
-    data['22d_SFR'][0] = eta
+    data['22d_SFR'][0] = eta.strftime("%H:%M:%S")
     data['22d_SFR'][1] = response5
 
     try:
@@ -90,7 +89,7 @@ def get_data():
         eta = 'N/A'
         response6 = 'N/A'
 
-    data['22x_KT'][0] = eta
+    data['22x_KT'][0] = eta.strftime("%H:%M:%S")
     data['22x_KT'][1] = response6
     
     return data
