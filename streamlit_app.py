@@ -5,6 +5,8 @@ from datetime import datetime
 from pytz import timezone
 from streamlit_autorefresh import st_autorefresh
 
+st_autorefresh(interval=60 * 1000, limit=None, key="page_refresh")
+
 def get_data():
 
     data = {
