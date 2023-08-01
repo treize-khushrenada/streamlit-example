@@ -29,10 +29,10 @@ def get_data():
         response1 = response1['data'][0]['eta']
         eta = datetime.fromisoformat(response1)
         response1 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response1 = 'N/A'
+        response1 = 0
     
     data['22x_OV'][0] = eta
     data['22x_OV'][1] = response1
@@ -41,10 +41,10 @@ def get_data():
         response2 = response2['data'][0]['eta']
         eta = datetime.fromisoformat(response2)
         response2 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response2 = 'N/A'
+        response2 = 0
 
     data['22m_SFR'][0] = eta
     data['22m_SFR'][1] = response2
@@ -53,10 +53,10 @@ def get_data():
         response3 = response3['data'][0]['eta']
         eta = datetime.fromisoformat(response3)
         response3 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response3 = 'N/A'
+        response3 = 0
 
     data['22_SFR'][0] = eta
     data['22_SFR'][1] = response3
@@ -65,10 +65,10 @@ def get_data():
         response4 = response4['data'][0]['eta']
         eta = datetime.fromisoformat(response4)
         response4 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response4 = 'N/A'
+        response4 = 0
 
     data['5R_SFR'][0] = eta
     data['5R_SFR'][1] = response4
@@ -77,10 +77,10 @@ def get_data():
         response5 = response5['data'][0]['eta']
         eta = datetime.fromisoformat(response5)
         response5 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response5 = 'N/A'
+        response5 = 0
 
     data['22d_SFR'][0] = eta
     data['22d_SFR'][1] = response5
@@ -89,10 +89,10 @@ def get_data():
         response6 = response6['data'][0]['eta']
         eta = datetime.fromisoformat(response6)
         response6 = (eta - hkt_now).total_seconds() / 60
-        eta = eta.strftime("%H:%M:%S")
+        eta = eta.strftime("%H:%M")
     except:
         eta = 'N/A'
-        response6 = 'N/A'
+        response6 = 0
 
     data['22x_KT'][0] = eta
     data['22x_KT'][1] = response6
