@@ -106,7 +106,7 @@ def main():
     col1, col2 = st.columns(2)
     with col1:
         st.header("Come")
-        st.markdown('# 22x返')
+        st.markdown('# 22x')
         st.markdown('# ETA: '+str(data['22x_KT'][0]))
         st.markdown('# '+str(int(data['22x_KT'][1]))+"mins left")
     with col2:
