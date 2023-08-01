@@ -119,7 +119,7 @@ def main():
         st.markdown('# 22D '+str(data['22d_SFR'][0]+' '+str(int(data['22d_SFR'][1]))+"m"))
     
 
-while __name__ == '__main__':
+if __name__ == '__main__':
     main()
     time.sleep(60)
     
