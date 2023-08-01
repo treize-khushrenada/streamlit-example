@@ -29,6 +29,7 @@ def get_data():
         response1 = response1['data'][0]['eta']
         eta = datetime.fromisoformat(response1)
         response1 = (eta - hkt_now)
+        response1 = response1.strftime("%M:%S")
     except:
         eta = 'N/A'
         response1 = 'N/A'
