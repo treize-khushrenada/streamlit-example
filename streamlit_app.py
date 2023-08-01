@@ -115,9 +115,8 @@ def main():
         st.markdown('# 5R '+str(data['5R_SFR'][0]+' '+str(int(data['5R_SFR'][1]))+"m"))
         st.markdown('# 22D '+str(data['22d_SFR'][0]+' '+str(int(data['22d_SFR'][1]))+"m"))
     
-
-while __name__ == '__main__':
-    with st.empty():
+with st.empty():
+    while __name__ == '__main__':
         main()
         time.sleep(60)
     
