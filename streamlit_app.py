@@ -1,8 +1,12 @@
 import streamlit as st
 import requests
 import time
+from datetime import datetime
+from pytz import timezone    
 
 def get_data():
+    hkt = timezone('Asia/Hong_Kong')
+    hkt_now = datetime.now(hkt)
     # make your 6 GET requests here and store the responses in a dictionary
     response1 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003782/22x').json()            
     response2 = requests.get('https://rt.data.gov.hk/v2/transport/citybus/eta/CTB/003520/22m').json()
@@ -13,31 +17,43 @@ def get_data():
 
     try:
         response1 = response1['data'][0]['eta']
+        response1 = datetime.fromisoformat(response1)
+        response1 = hkt_now - response1
     except:
         response1 = 'N/A'
 
     try:
         response2 = response2['data'][0]['eta']
+        response2 = datetime.fromisoformat(response2)
+        response2 = hkt_now - response2
     except:
         response2 = 'N/A'
 
     try:
         response3 = response3['data'][0]['eta']
+        response3 = datetime.fromisoformat(response3)
+        response3 = hkt_now - response3
     except:
         response3 = 'N/A'
 
     try:
         response4 = response4['data'][0]['eta']
+        response4 = datetime.fromisoformat(response4)
+        response4 = hkt_now - response4
     except:
         response4 = 'N/A'
 
     try:
         response5 = response5['data'][0]['eta']
+        response5 = datetime.fromisoformat(response5)
+        response5 = hkt_now - response5
     except:
         response5 = 'N/A'
 
     try:
         response6 = response6['data'][0]['eta']
+        response6 = datetime.fromisoformat(response6)
+        response6 = hkt_now - response6
     except:
         response6 = 'N/A'
     
@@ -51,6 +67,7 @@ def get_data():
         '22x_KT': response6,
     }
     return data
+    
 
 def main():
     st.title('Auto-Refreshing Data')
