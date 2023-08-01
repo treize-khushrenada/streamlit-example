@@ -18,42 +18,42 @@ def get_data():
     try:
         response1 = response1['data'][0]['eta']
         response1 = datetime.fromisoformat(response1)
-        response1 = hkt_now - response1
+        response1 = response1 - hkt_now
     except:
         response1 = 'N/A'
 
     try:
         response2 = response2['data'][0]['eta']
         response2 = datetime.fromisoformat(response2)
-        response2 = hkt_now - response2
+        response2 = response2 - hkt_now
     except:
         response2 = 'N/A'
 
     try:
         response3 = response3['data'][0]['eta']
         response3 = datetime.fromisoformat(response3)
-        response3 = hkt_now - response3
+        response3 = response3 - hkt_now
     except:
         response3 = 'N/A'
 
     try:
         response4 = response4['data'][0]['eta']
         response4 = datetime.fromisoformat(response4)
-        response4 = hkt_now - response4
+        response4 = response4 - hkt_now
     except:
         response4 = 'N/A'
 
     try:
         response5 = response5['data'][0]['eta']
         response5 = datetime.fromisoformat(response5)
-        response5 = hkt_now - response5
+        response5 = response5 - hkt_now
     except:
         response5 = 'N/A'
 
     try:
         response6 = response6['data'][0]['eta']
         response6 = datetime.fromisoformat(response6)
-        response6 = hkt_now - response6
+        response6 = response6 - hkt_now
     except:
         response6 = 'N/A'
     
@@ -74,7 +74,7 @@ def main():
     data = get_data()    
     st.markdown('# 22X走')
     st.markdown('# '+str(data['22x_OV']))
-    st.markdown('#22M走')
+    st.markdown('# 22M走')
     st.markdown('# '+str(data['22m_SFR']))
     st.markdown('# 22走')
     st.markdown('# '+str(data['22_SFR']))
