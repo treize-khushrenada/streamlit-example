@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 import time
 from datetime import datetime
-from pytz import timezone    
+from pytz import timezone
+from streamlit_autorefresh import st_autorefresh
 
 def get_data():
 
