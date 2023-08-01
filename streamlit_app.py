@@ -101,7 +101,7 @@ def get_data():
     
 
 def main():
-    st.title('Come & Go💨')
+    st.title('維一Come & Go💨')
     data = get_data()
     col1, col2 = st.columns(2)
     with col1:
