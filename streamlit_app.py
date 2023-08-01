@@ -59,7 +59,7 @@ def get_data():
     
 
     data = {
-        '22x_OV': response1,
+        '22x_OV': strresponse1,
         '22m_SFR': response2,
         '22_SFR': response3,
         '5R_SFR': response4,
@@ -72,12 +72,18 @@ def get_data():
 def main():
     st.title('Auto-Refreshing Data')
     data = get_data()    
-    st.markdown('#22X走', data['22x_OV'])
-    st.markdown('#22M走', data['22m_SFR'])
-    st.markdown('#22走', data['22_SFR'])
-    st.markdown('#5R走', data['5R_SFR'])
-    st.markdown('#22D走', data['22d_SFR'])
-    st.markdown('#22x返', data['22x_KT'])
+    st.markdown('#22X走')
+    st.markdown('#'+str(data['22x_OV']))
+    st.markdown('#22M走')
+    st.markdown('#'+str(data['22m_SFR']))
+    st.markdown('#22走')
+    st.markdown('#'+str(data['22_SFR']))
+    st.markdown('#5R走')
+    st.markdown('#'+str(data['5R_SFR']))
+    st.markdown('#22D走')
+    st.markdown('#'+str(data['22d_SFR']))
+    st.markdown('#22x返')
+    st.markdown('#'+str(data['22x_KT']))
 
 while __name__ == '__main__':
     main()
